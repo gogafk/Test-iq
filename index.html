@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Тест на IQ</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            background-color: #f4f4f9;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+        .container {
+
+            margin-top: 50px;
+
+        }
+
+        h1 {
+
+            color: #333;
+
+        }
+
+        input[type="number"] {
+
+            padding: 10px;
+
+            font-size: 16px;
+
+            margin-top: 20px;
+
+        }
+
+        button {
+
+            margin-top: 20px;
+
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            background-color: #007BFF;
+
+            color: white;
+
+            border: none;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+        }
+
+        button:hover {
+
+            background-color: #0056b3;
+
+        }
+
+        .result {
+
+            margin-top: 30px;
+
+            font-size: 20px;
+
+            color: red;
+
+        }
+
+        .image-container {
+
+            margin-top: 20px;
+
+        }
+
+        img {
+
+            max-width: 200px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Тест на IQ</h1>
+
+        <p>Решите пример: 2 + 2</p>
+
+        <input type="number" id="answer" placeholder="Ваш ответ">
+
+        <button onclick="checkIQ()">Отправить</button>
+
+        <div class="result" id="result"></div>
+
+        <div class="image-container" id="image-container"></div>
+
+        <button id="restart" style="display: none;" onclick="restart()">Начать заново?</button>
+
+    </div>
+
+    <script>
+
+        function checkIQ() {
+
+            const answer = document.getElementById('answer').value;
+
+            const resultDiv = document.getElementById('result');
+
+            const imageContainer = document.getElementById('image-container');
+
+            const restartButton = document.getElementById('restart');
+
+            // Показываем всегда текст для неправильного ответа
+
+            resultDiv.innerHTML = "Поздравляю, ваш IQ равен: 0<br>Этот IQ равен дождевому червю! 🥳";
+
+            imageContainer.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Earthworm.jpg" alt="Дождевой червь">';
+
+            // Если ответ правильный, добавляем дополнительное сообщение
+
+            if (parseInt(answer) === 4) {
+
+                resultDiv.innerHTML = "Поздравляю, вы решили правильно! Ваш IQ высок!";
+
+                imageContainer.innerHTML = '<img src="https://via.placeholder.com/200" alt="Мозг">';
+
+            }
+
+            restartButton.style.display = "block";
+
+        }
+
+        function restart() {
+
+            document.getElementById('answer').value = "";
+
+            document.getElementById('result').innerHTML = "";
+
+            document.getElementById('image-container').innerHTML = "";
+
+            document.getElementById('restart').style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
